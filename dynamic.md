@@ -25,15 +25,15 @@ series:
     stroke_width: 2
     float_precision: 2
     data_generator: |
-      const noon = new Date()
-      noon.setHours(0, 0, 0, 0)
+      const noon = new Date();
+      noon.setHours(0, 0, 0, 0);
       const prices = entity.attributes.today.concat(entity.attributes.tomorrow);
       const data = [];
-      for(let i = 0; i < prices.length; i++) {
-        data.push([noon.getTime() + i * 1000 * 3600, prices[i].total * 100])
+      for (let i = 0; i < prices.length; i++) {
+        data.push([noon.getTime() + i * 1000 * 3600, prices[i].total * 100]);
       }
       return data;
-  - entity: sensor.scb_home_power
+  - entity: sensor.smooth_scb_home_power
     name: aktueller Verbrauch
     type: column
     yaxis_id: "1"
